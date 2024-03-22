@@ -11,9 +11,15 @@ function App() {
     setCity(newCity);
   };
 
+  const handleSearch = (searchCity) => {
+    if (searchCity.trim() !== "") {
+      setCity(searchCity); // Imposta la città di ricerca come città attiva
+    }
+  };
+
   return (
     <div>
-      <Navbar onCityChange={handleCityChange} />
+      <Navbar onCityChange={handleCityChange} onSearch={handleSearch} /> {/* Aggiunge la prop onSearch */}
       <WeatherApp city={city} />
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import logo from '../assets/images/logo.png'; 
 import sun from '../assets/images/sun.png'; 
@@ -8,11 +8,22 @@ import search from '../assets/images/lente-ingrandimento.png';
     
  
 
-const NavBar = ({ onCityChange }) => {
+const NavBar = ({ onCityChange, onSearch }) => {
+
+    const [searchCity, setSearchCity] = useState(''); // Stato per memorizzare la città di ricerca
 
     const handleCityClick = (city) => {
       onCityChange(city);
     }
+  
+    const handleSearchInputChange = (e) => {
+      setSearchCity(e.target.value); // Aggiorna lo stato della città di ricerca
+    };
+  
+    const handleSearchButtonClick = () => {
+      onSearch(searchCity); // Richiama la funzione onSearch passando la città di ricerca
+      setSearchCity(''); // Resetta lo stato della città di ricerca
+    };
 
   return (
     <Navbar variant="dark" className='bg-indigo'>
@@ -27,10 +38,10 @@ const NavBar = ({ onCityChange }) => {
       </Navbar.Brand>
       {/* Form di ricerca della località */}
       <Form className="position-relative d-flex ms-auto rounded-pill" style={{ backgroundColor: 'white' }}>
-        <FormControl type="text" placeholder="Cerca località" className="mr-sm-2 border-0 rounded-pill" width="300" /> 
+        <FormControl type="text" placeholder="Cerca località" className="mr-sm-2 border-0 rounded-pill" width="300" value={searchCity} onChange={handleSearchInputChange} /> {/* Aggiunta la funzione di gestione del cambio */}
         <div className="position-absolute end-0 top-0 h-100 d-flex align-items-center">
           {/* Bottone di ricerca */}
-          <Button variant="white" className="bg-none border-0 rounded-pill">
+          <Button variant="white" className="bg-none border-0 rounded-pill" onClick={handleSearchButtonClick}>
             <img
               src={search}
               height={24}
