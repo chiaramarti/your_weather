@@ -54,7 +54,7 @@ const NavBar = ({ onCityChange, onSearch }) => {
       </Form>
       {/* Link per le località più popolari */}
       <Nav className="mr-auto">
-        <Nav.Link href="#popular">Popular</Nav.Link>
+        <Nav.Link href="#popular" className="d-flex justify-content-center align-items-center">Popular</Nav.Link>
         <Nav.Link href="#roma"  onClick={() => handleCityClick('Roma')} className="d-flex justify-content-center align-items-center">
           Roma
           <img
