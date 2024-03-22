@@ -7,6 +7,29 @@
   pointer-events: none;
 }
 
+.bg-indigo{
+ background-color: #285B8C;
+}
+
+body{
+  background-color: #214E8E;
+}
+
+nav .navbar-nav .nav-link{
+  width: 150px;
+  border-right: solid white 1px;
+}
+
+nav .navbar-nav .nav-link:last-child{
+  width: 150px;
+  border-right: none;
+}
+
+.weather-info{
+  background-image: linear-gradient(to top, #285B8C, #214E8E);
+  color: white;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
