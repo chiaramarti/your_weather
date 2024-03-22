@@ -34,6 +34,7 @@ const WeatherApp = ({ city }) => {
   const fetchForecast = (city) => {
     const apiKey = '39e4200803c7b4ffeb5993e8fb481e49';
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    //  units=metric indica che i dati devono essere restituiti in unità metriche, che includono i gradi Celsius per la temperatura
   
     fetch(apiUrl)
       .then(response => {
